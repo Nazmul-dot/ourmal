@@ -8,9 +8,24 @@ const fileUpload = require("express-fileupload");
 require("./db/conn");
 
 app.use(cookieParser());
+// for json data
 app.use(express.json());
+//
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.use(cors());
+app.use(
+  cors({
+    origin: "['http://localhost:3000']",
+    credentials: true,
+  })
+);
 
 app.use(
   fileUpload({
