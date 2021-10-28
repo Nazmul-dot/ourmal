@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-// const cors =require('cors')
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 require("./db/conn");
@@ -19,7 +19,7 @@ app.use(express.json());
 // }
 // app.use(cors(corsOptions));
 
-// app.use(cors())
+app.use(cors());
 // app.use(cors({
 //     origin:"['http://localhost:3000']",
 //     credentials:true,
